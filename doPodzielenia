@@ -531,7 +531,7 @@ print("\n-Dobra, Gabrielu, mamy dość nietypową sytuację.Proponuję zawrzeć 
       "\n-Zgoda. "
       "\n-Rozejrzymy się."
       "Przecierając czoło pomyślałes, że to jest naprawdę intensywny dzień. Rozglądając się po otoczeniu, zauważasz błyszczący się element.")
-shinyThing = input("\n\nJaką czynność chcesz wykonać?: ")
+shinyThing = input("\n\nCo chcesz zrobić? ")
 if shinyThing == action[1]:
     print("\nOstrożnie podchodzisz do przedmiotu, kształtem przypomina... właściwie nic. To chyba jakiś kolczyk... Gdy już dosłownie miałeś go podnieść, zostajecie otoczeni.")
     intelligence -= 1
@@ -565,7 +565,7 @@ print("\n\nNagle usłyszałeś przeraźliwe odgłosy z dżungli. Zauważyłeś j
 move = input("Co chcesz zrobić? ")
 while move.lower() != 'idź w prawo':
     print("Nie chcesz tu zostać sam!")
-
+    move = input("Co chcesz zrobić? ")
 #2 LOKACJA
 print("Zachwując czujność przemierzacie te dzikie tereny. Próbujesz zagadać do Gabriela:")
 smallTalk = input("1 - Patrz w co nas wpakowałeś!"
@@ -597,7 +597,7 @@ if intelligence>10:
     print("Jesteś na tyle mądry, żeby nawet nie zastanawiać się nad powrotem do tamtego piekła. Poradzisz sobie ze wszystkim co Cię czeka.")
 else:
     enterCamp = input("Co chcesz zrobić?")
-    while enterCamp != [-1]:
+    while enterCamp != action[7]:
         print("To nie jest dobry wybór...")
         enterCamp = input("Co chcesz zrobić?")
 
@@ -717,4 +717,4 @@ if artefactIssue == '1':
 
 elif artefactIssue == '2':
     print()
-#walka, ginie gabriel      
+#walka, ginie gabriel
