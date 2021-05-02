@@ -1,0 +1,70 @@
+import random
+# imię
+name = input("Rozpoczynamy przygodę! Podaj imię swojego bohatera: ")
+name = name.title()
+
+# zawód
+profession = input("Wybierz zawód - nauczyciel, trener, aktor, który będzie wykonywać: ")
+profession = profession.lower()
+while not(profession == "nauczyciel" or profession == "trener" or profession == "aktor"):
+    profession = input("Wybierz zawód ponownie, tym razem poprawnie - nauczyciel, trener, aktor: ")
+print("\n\nTwoja postać", name, "pracuje jako", profession + ".")
+
+# punkty życia
+hit = 0
+health_points = random.randint(50, 101)
+print(name, "ma", health_points, "punktów życia.\n\n")
+
+if 50 <= health_points <= 65:
+    hit += 3
+elif 66 <= health_points <= 80:
+    hit += 2
+else:
+    hit += 1
+
+if health_points < 1:
+    print("Koniec gry, Twoja postać nie żyje.")
+    '''exit??'''
+# cechy postaci
+strength = 0
+charisma = 0
+intelligence = 0
+abilities = [strength, charisma, intelligence]
+
+decision = input("Chcesz samodzienie rozłożyć punkty do cech: siła, charyzma, inteligencja? ")
+decision = decision.lower()
+while not(decision == "tak" or decision == "nie"):
+    decision = input("Odpowiedz tak/nie: ")
+if decision == "tak":
+    print("Masz do rozdania 10 punktów\n")
+    strength = int(input("Ile punktów przenaczasz na siłę? "))
+    charisma = int(input("Ile punktów przenaczasz na charyzmę? "))
+    intelligence = int(input("Ile punktów przenaczasz na inteligencję? "))
+    while not(strength+charisma+intelligence == 10):
+        print("Spróbuj ponownie!")
+        strength = int(input("Ile punktów przenaczasz na siłę? "))
+        charisma = int(input("Ile punktów przenaczasz na charyzmę? "))
+        intelligence = int(input("Ile punktów przenaczasz na inteligencję? "))
+        if strength+charisma+intelligence == 10:
+            continue
+    if profession == "trener":
+        abilities = [strength + 5, charisma + 2, intelligence + 3]
+    elif profession == "nauczyciel":
+        abilities = [strength + 2, charisma + 3, intelligence + 5]
+    elif profession == "aktor":
+        abilities = [strength + 2, charisma + 5, intelligence + 3]
+elif decision == "nie":
+    while not(strength+charisma+intelligence == 10):
+        strength = random.randint(1, 11)
+        charisma = random.randint(1, 11)
+        intelligence = random.randint(1, 11)
+        if strength+charisma+intelligence == 10:
+            print("Wylosowano kolejno:", strength, charisma, intelligence)
+    if profession == "trener":
+        abilities = [strength + 5, charisma + 2, intelligence + 3]
+    elif profession == "nauczyciel":
+        abilities = [strength + 2, charisma + 3, intelligence + 5]
+    elif profession == "aktor":
+        abilities = [strength + 2, charisma + 5, intelligence + 3]
+
+print("\n\nCechy Twojej postaci z dodatkowymi punktami za wybrany zawód:\nsiła:", abilities[0], "\ncharyzma:", abilities[1], "\ninteligencja:", abilities[2], "\n\n")
