@@ -1,0 +1,48 @@
+def menu():
+    from BG import health_points
+    #from BG import equipment
+    print("Oto menu gry:")
+
+    print("--------------"
+          "\n--- Menu ----"
+          "\n--------------"
+          "\n---- HP ------"
+          "\n--------------"
+          "\n-- Nowa gra --"
+          "\n--------------"
+          "\n-- Ekwipunek --"
+          "\n--------------"
+          "\n--- Mapa ------"
+          "\n--------------"
+          "\n-- Wyjście ---")
+
+    menuChoice = input("Co chcesz zrobić?")
+    if menuChoice.lower() == "hp":
+        print("Punkty życia: ", health_points)
+
+    elif menuChoice.lower() == "nowa gra":
+        print("Rozpoczynasz nową grę")
+
+
+    elif menuChoice.lower() == "ekwipunek":
+        print("Oto twój ekwipunek: ")
+        #print(equipment)
+
+
+    elif menuChoice.lower() == "wyjście":
+        print("Opuszczasz grę.")
+
+    elif menuChoice.lower() == "mapa":
+        level = int(input("Na którym poziomie jesteś?"))
+        from mapa import moving
+
+        if level == '1':
+            print()
+        elif level == '2':
+            print()
+        elif level == '3':
+            print("Jako kolejne polecenie wpisz\'mapa\': ", moving())
+        else:
+            print("Nie ma takiego poziomu.")
+
+menu()
