@@ -1,0 +1,88 @@
+#mapa z poziomu 3
+def moving():
+    places3 = {
+        1: {"name": "Polana",
+            "prawo": 2,},
+        2: {"name": "Dżungla",
+            "dół": 3},
+        3: {"name": "Obóz główny",
+            "prawo": 4,
+            "lewo": 5,
+            "dół": 6,
+            "góra": 7},
+        4: {"name": "Obóz wschód",
+            "lewo": 3},
+        5: {"name": "Obóz zachód",
+            "prawo": 3},
+        6: {"name": "Obóz południe",
+            "górę": 3},
+        7: {"name": "Najwyższy punkt w wiosce",
+            "dół": 3,
+            "lewo": 8},
+        8: {"name": "Wodospad",
+            "prawo": 7}
+    }
+
+    print("Aby się poruszyć, użyj komendy idź, a następnie podaj jeden z kierunków - północ, południe, wschód, zachód. Jeśli chcesz opuścić grę, napisz wyjście.")
+    print("Jeśli chcesz zobaczyć możliwe ruchy, wpisz komendę: mapa.")
+    currentRoom = 1
+
+    move = (input("Gdzie chcesz pójść?")).lower().split()
+    while not(move[0] == "idź" or move [0] == "wyjście"):
+
+        if move[0] == "idź":
+            if move[1] in places3[currentRoom]:
+                currentRoom = places3[currentRoom][move[1]]
+                print(currentRoom)
+            else:
+                print("Nie możesz tędy pójść!")
+        elif move[0] == "mapa":
+            print(places3.items())
+        elif move[0] == "wyjście":
+            print("Opuszczasz grę!")
+        move = (input("Gdzie chcesz pójść?")).lower().split()
+ruch = moving()
+
+
+'''
+def moving():
+    global places3
+currentRoom = 3
+print("Użyj komendy:")
+print("> idź [kierunek]")
+print("> wyjście")
+print("Komenda:")
+
+
+def moving1():
+    global places3
+while True:
+    print("Jesteś w " + places3[currentRoom]["name"])
+    move = input("> ").lower().split()
+    if move[0] == "idź":
+        if move[1] in places3[currentRoom]:
+            currentRoom = places3[currentRoom][move[1]]
+            print(currentRoom)
+        else:
+            print("Nie możesz tędy pójść!")
+    if move[0] == "wyjście":
+         print("Opuszczas grę!")
+
+    continue
+if places3[currentRoom] == 4:
+    print("Jesteś we wschodniej częsci obozu. Podchodzisz do stojąej kobiety.")
+    #DIALOGI
+
+elif places3[currentRoom] == 5:
+    print("Jesteś w zachodniej części obozu. Postanawiasz pomóc zagubionemu mężczyźnie.")
+    #ZADANIE/MINIGRA
+elif places3[currentRoom] == 6:
+    print("Jesteś w południowej części obozu. Masz okazję poznać historię tej cywilizacji.")
+    #OPISÓWKA
+elif places3[currentRoom] == 7:
+    print("Doszedłeś do najwyższego punktu w wiosce, gdzie urzęduje ich przywódca. Przygotuj się do rozmowy.")
+
+go = moving()
+a = moving1()
+
+'''
