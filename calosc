@@ -155,7 +155,7 @@ places3 = {
 action = ['otwórz', 'zamknij', 'włącz', 'wyłącz', 'użyj', 'daj','weź', 'idź']
 print("Czynności, które możesz wykonywać podczas gry: ",action)
 
-
+actionKey = ['weź']
 
 print("\n\nPrzypominasz sobie, że rzeczy z szuflady nie zostały spakowane. Chowasz je do plecaka.")
 equipment = ["jabłko", "latarka", "nóż", "identyfikator"]
@@ -190,11 +190,15 @@ print("-Dobrze, ja już muszę się zbierać, mam jeszcze trochę rzeczy do zał
       "\nTo było tuż przed jego zaginięciem..."
       "\nW każdym razie, znalazłam to dopiero kilka dni temu, za jedną z szaf."
       "\nMam nadzieję, że prezent Ci się podoba!")
-takePresent = input("Zabierz prezent ")
+import menu
+from menu import getInput
+getInput()
+
+'''input("Zabierz prezent ")
 while takePresent != action[6]:
     print("Lepiej dobrze się zastanów.")
     takePresent = input("Zabierz prezent ")
-
+'''
 print("\n-Tak, jasne, bardzo dziękuję! Za wszystko."
       "\n-Powodzenia drogi chłopcze!")
 equipment.append("haczyk z wędkowania")
@@ -380,9 +384,15 @@ print("Idąc dalej, napotykasz na swojej drodze przeszkodę. Nie jesteś w stani
       "\nPo chwili już wiesz i jejku, ale żałujesz, że cokolwiek nacisnąłeś. Automat ewidentnie się uruchamia,"
       "\nkorytarz nieco się oświetlił, jednak nie było czasu, żeby się napawać tym widokiem,"
       "\nponieważ w parze z obrazem, szedł dźwięk. Musisz to jak najszybciej wyłączyć!")
-#MINIGRA
+#MINIGRA - PALINDROM
+from minigry import palindrom
+palindrom()
 
-print("Chyba już nic nie jest w stanie Cię zdziwić. Czujesz, że jesteś w sytuacji bez wyjścia. Dosłownie. "
+
+print("\nUfff, ta wyjąca maszyna wreszcie zamilkła. Zwlekasz chwilę, stojąc w miejscu, ale nie słyszysz żadnych kroków.")
+
+
+print("\nChyba już nic nie jest w stanie Cię zdziwić. Czujesz, że jesteś w sytuacji bez wyjścia. Dosłownie. "
       "\nWspierając się o ścianę,stawiasz ostrożnie kolejne kroki."
       "\nMyśląc, że udało Ci się znaleźć rozwiązanie idealne, szybko zostajesz sprowadzony na ziemię."
       "\nLampa, za którą chwyciłeś, przekręciła się. Świetnie, jakżeby inaczej. Czekając aż z podłogi wysuną się kolce"
@@ -678,21 +688,21 @@ if charisma>10:
 else:
     i=0
 while i<2:
-    askGabriel = input("Możesz zadać Gabrielowi dwa pytania, chyba, że będzie czuł się przy Tobie na tyle swobodnie, że odpowie na wszystkie..."
-        "1 - "
-        "2 - "
-        "3 - ")
+    askGabriel = input("\n\nMożesz zadać Gabrielowi dwa pytania, chyba, że będzie czuł się przy Tobie na tyle swobodnie, że odpowie na wszystkie..."
+        "\n1 - Jak Ci się tu podoba?"
+        "\n2 - Gdzie byłeś jak mnie nie było?"
+        "\n3 - Co planujesz robić po powrocie?")
 
     if askGabriel == '1':
-        print("\n-")
+        print("\n\n-Całkiem spoko, ale no zdecydowanie nie chcę wracać do tamtej dżungli... Jestem zbyt młody i piękny by umierać!")
         i += 1
 
     elif askGabriel == '2':
-        print("\n-")
+        print("\n-Tu i tam... Fajni są nawet ci mieszkańcy...")
         i += 1
 
     elif askGabriel == '3':
-        print("\n-")
+        print("\n-Jak wreszcie wrócimy, to wezmę urlop i od razu zapiszę się na jakiś pakiet sesji terapeutycznych, żeby jakoś dojść do siebie!")
         i += 1
 
 print("\n\nWaszą rozmowę przerwał powrót ojca. Powiedziałeś mu co was czeka na miejscu."
@@ -708,12 +718,27 @@ print("\n\nNiezgrabnie wywracacie się na drewnianą podłogę. Bandyta-szef, mu
 if intelligence>12:
     print("Sugeruję odpowiedź 1!")
 artefactIssue = input("Wybierz mądrze co chcesz odpowiedzieć!"
-                      "1 - "
-                      "2 - ")
+                      "\n\n1 -Musisz zrozumieć, że tu chodzi o coś więcej niż góry złota. Ten artefakt, to co oni robią, to jest coś bezcennego. Tak naprawdę, tylko dzięki nim jeszcze żyjemy."
+                            "\nNawet Ty nie możesz być aż takim ignorantem!"
+                      "\n\n2 -Dogadajmy się! Jeśli chcesz, to ja... Ja mogę nawet Cię tam zaprowadzić. Poznasz to miejsce, tych ludzi...")
 
 if artefactIssue == '1':
-    print()
-#dogadanie się z bandytą-szefem
+    print("\n\n-Hmmm, za ignoranta zdecydowanie się nie uważam, co nie zmienia faktu, że czuję się niewymowanie oszukany. Przez was wszystkich.")
+    if intelligence>13:
+        print("\nPonownie, sugeruję odpowiedź 1!")
+    finalIssue = input("\n\n1 - E tam od razu oszukany, nie zachowuj się jak jakiś dzieciak! Daj nam wszystkim szansę na szczęśliwe zakończenie. Może po tylu latach niecnego knowania, warto wybrać inną drogę..."
+                       "\n2 - Najbardziej oszukany powinieneś czuć się przez samego siebie. Patrz ile czasu spędziłeś szukając czegoś, czego w sumie tak naprawdę nie chcesz. Nie jest za późno na zmianę decyzji!")
+    if finalIssue == '1':
+        print("\n\nPo chwili wypełnionej ogromną grozą ciszy, odpowiada:"
+              "\n-Może i macie rację... Gabriel, nie jesteśmy za starzy na to wszystko?"
+              "\n-Oj, zdecydowanie za starzy szefie... Wróćmy do starego, dobrego napadania na banki i odpocznijmy trochę."
+              "\n\n\t\tWidząc miny bandziorów i swojego odnalezionego ojca, wiesz, że już wszystko dobrze się skończy. Po raz pierwszy od dawna(dokładniej od rana), oddychasz z ulgą."
+              "\nMając w zasięgu artefakt, ojca i niespodziewanego kompana, poczułeś, że naprawdę masz wszystko. Byłeś szczęśliwy. Czując, ze to dopiero początek tej dziwnej przygody, z nadzieją w głosie zapytałeś:"
+              "\n\n-To co, robimy małą wycieczkę?")
+
+    elif finalIssue == '2':
+        print("\n\n-Dość tego, nie będziesz mi tu jakieś sielankowe wizje przedstawiał... Gaberiel!!!")
+#walka, ginie gabriel
 
 elif artefactIssue == '2':
     print()
