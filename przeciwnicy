@@ -1,1 +1,39 @@
+health_points = 55
+class Enemies:
+    def __init__(self, enemiesHP = 13, enemiesAttack = 3, enemiesDamage = 3 ):
+        self.enemiesHp = enemiesHP
+        self.enemiesAttack = enemiesAttack
+        self.enemiesDamage = enemiesDamage
+
+    def atakuje(self):
+        health_points = 55
+        health_points -= demon1.enemiesAttack
+        return "Przeciwnik zadaje Ci:", str(self.enemiesAttack),"obrażeń."
+
+    def broni(self):
+        return "Zabierasz przeciwnikowi: ", str(self.enemiesDamage)
+
+
+#demon słaby
+demon1 = Enemies()
+demon1.enemiesHp = 10
+demon1.enemiesAttack = 2
+demon1.enemiesDamage = 4
+
+
+#demon średni
+demon2 = Enemies()
+
+#demon silny
+demon3 = Enemies()
+demon3.enemiesHp = 16
+demon3.enemiesAttack = 5
+demon3.enemiesDamage = 2
+
+#szef
+boss = Enemies()
+boss.enemiesHp = 18
+boss.enemiesAttack = 6
+boss.enemiesDamage = 2
+
 
