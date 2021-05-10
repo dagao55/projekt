@@ -1,1 +1,46 @@
+import random
+'''
+from gra import health_points
+from gra import hit
+from gra import abilities
+'''
+from przeciwnicy import Enemies
+from przeciwnicy import demon1
+from przeciwnicy import demon2
+from przeciwnicy import demon3
 
+
+health_points = 55
+hit = 3
+a = [demon1.atakuje(),demon1.broni()]
+demon1Action = random.sample(a, 1)
+
+print("Twoje punkty życia: ", health_points)
+print("Punkty życia demona: ", demon1.enemiesHp)
+
+#walka demon1
+print("Rozpoczyna się walka!")
+
+while demon1.enemiesHp > 0:
+    fightChoice = input("Wybierasz obronę czy atak?")
+    if fightChoice == "atak":
+        if demon1Action == a[0]:
+            health_points = health_points - demon1.enemiesAttack
+            demon1.enemiesHp = demon1.enemiesHp - hit
+        elif demon1Action == a[1]:
+            demon1.enemiesHp -= (hit-demon1.enemiesDamage)
+        print("Twoje pounkty życia: ", health_points)
+        print("Punkty życia demona: ", demon1.enemiesHp)
+
+    elif fightChoice == "obrona":
+
+        if demon1Action == a[0]:
+            health_points -= demon1.enemiesAttack
+        elif demon1Action == a[1]:
+            health_points -= 0
+
+        print("Twoje pounkty życia: ", health_points)
+        print("Punkty życia demona: ", demon1.enemiesHp)
+
+print("Twoje pounkty życia: ", health_points)
+print("Punkty życia demona: ", demon1.enemiesHp)
