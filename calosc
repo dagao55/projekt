@@ -28,6 +28,7 @@ profession = profession.lower()
 while not(profession == "nauczyciel" or profession == "trener" or profession == "aktor"):
     profession = input("Wybierz zawód ponownie, tym razem poprawnie - nauczyciel, trener, aktor: ")
 print("\n\nTwoja postać", name, "pracuje jako", profession + ".")
+workplace = "miejsce pracy"
 if profession == "nauczyciel":
     workplace = "szkoła"
 elif profession == "trener":
@@ -97,27 +98,27 @@ print("\n\nCechy Twojej postaci z dodatkowymi punktami za wybrany zawód:\nsiła
 #mapa z poziomu 1
 places1 = {
     1: {"name":"Dom",
-        "prawo":2},
+        "wschód":2},
     2: {"name":"Sąsiadka",
-        "lewo":1,
-        "dół":3},
+        "zachód":1,
+        "południe":3},
     3: {"name":"Droga do pracy",
-        "górę":2,
-        "dół":4},
+        "północ":2,
+        "południe":4},
     4:{"name":"Praca",
-       "górę":3,
-       "lewo":5},
+       "północ":3,
+       "zachód":5},
     5:{"name":"Sklep",
-       "prawo":4}
+       "wschód":4}
 }
 
 #mapa z poziomu 2
 places2 = {
     1: {"name":"Pokój",
-        "prawo":2},
+        "wschód":2},
     2: {"name":"Korytarz",
-        "lewo":1,
-        "dół":3},
+        "zachód":1,
+        "południe":3},
     3: {"name":"Gabinet",
         },
     4:{"name":"Samochód",
@@ -129,33 +130,33 @@ places2 = {
 #mapa z poziomu 3
 places3 = {
     1: {"name":"Polana",
-        "prawo":2},
+        "wschód":2},
     2: {"name":"Dżungla",
-        "dół":3},
+        "południe":3},
     3: {"name":"Obóz",
-        "prawo":4,
-        "lewo":5,
-        "dół":6,
+        "wschód":4,
+        "zachód":5,
+        "południe":6,
         "góra":7},
     4: {"name":"Obóz wschód",
-        "lewo":3},
+        "zachód":3},
     5: {"name":"Obóz zachód",
-        "prawo":3},
+        "wschód":3},
     6: {"name":"Obóz południe",
-        "górę":3},
+        "północ":3},
     7:{"name":"Najwyższy punkt w wiosce",
-       "dół":3,
-       "lewo":8},
+       "południe":3,
+       "zachód":8},
     8:{"name":"Wodospad",
-       "prawo":7}
+       "wschód":7}
 }
 
 
 #czynności
-action = ['otwórz', 'zamknij', 'włącz', 'wyłącz', 'użyj', 'daj','weź', 'idź']
-print("Czynności, które możesz wykonywać podczas gry: ",action)
+action = ('otwórz', 'zamknij', 'włącz', 'wyłącz', 'użyj', 'daj','weź', 'idź','podnieś')
 
-actionKey = ['weź']
+import zasady
+print(zasady)
 
 print("\n\nPrzypominasz sobie, że rzeczy z szuflady nie zostały spakowane. Chowasz je do plecaka.")
 equipment = ["jabłko", "latarka", "nóż", "identyfikator"]
@@ -171,16 +172,21 @@ if neighbourHelp == "tak":
     print("To idź!")
 else:
     print("I tak trzeba pójść, nie ma to tamto!")
-print("\n-Oh, jak dobrze, że jesteś! Wiem, że wyjeżdżasz wieczorem, dlatego po raz ostatni chciałm poprosić Cię o przysługę, telewizor mi nie działa."
-      "\nMógłbyś na to spojrzeć?")
-print("\n-Jasne nie ma problemu!")
-print(name,"podchodzi do telewizora")
-'''MINIGRA do naprawienia telewizora
-if tv == 1:
-    print("Gotowe, telewizor działa!")
-else:
-    print("Niestety będzie musiała Pani zadzwonić po technika").
+print("\n-Oh, jak dobrze, że jeszcze jesteś! Podejdź proszę na chwilę. Nie jestem w stanie się schylić, a upadło mi 5 szpilek. Podniesiesz je proszę?")
+print("\n\tZ ogromnym zachwytem, przytakujesz.")
 '''
+from menu import getInput
+getInput("podnieś")
+print("\nJeszcze tylko 4...")
+getInput("podnieś")
+print("\nJeszcze tylko 3...")
+getInput("podnieś")
+print("\nJeszcze tylko 2...")
+getInput("podnieś")
+print("\nJeszcze tylko 1...")
+getInput("podnieś")
+print("Trochę się przy tym wszystkim pokłułeś, ale cóż..."
+      "\n-Proszę bardzo, oto niesforne szpileczki!")
 print("-Dobrze, ja już muszę się zbierać, mam jeszcze trochę rzeczy do załatwienia."
       "\n-Bezpiecznej drogi, odezwij się czasem! Ah, zapomniałabym, miałam Ci to wręczyć na urodziny, "
       "\nale chyba będę musiała wcześniej."
@@ -190,19 +196,14 @@ print("-Dobrze, ja już muszę się zbierać, mam jeszcze trochę rzeczy do zał
       "\nTo było tuż przed jego zaginięciem..."
       "\nW każdym razie, znalazłam to dopiero kilka dni temu, za jedną z szaf."
       "\nMam nadzieję, że prezent Ci się podoba!")
-import menu
 from menu import getInput
-getInput()
-
-'''input("Zabierz prezent ")
-while takePresent != action[6]:
-    print("Lepiej dobrze się zastanów.")
-    takePresent = input("Zabierz prezent ")
-'''
+getInput("weź")'''
+from menu import getInput
 print("\n-Tak, jasne, bardzo dziękuję! Za wszystko."
       "\n-Powodzenia drogi chłopcze!")
 equipment.append("haczyk z wędkowania")
 print("\n\nDobra, czas na załatwienie sprawy z pracą, muszę oddać identyfikator.")
+getInput("południe")
 #3 LOKACJA
 "*"*40
 print("\nRozmyślając, skąd haczyk wziął się u sąsiadki, prawie wpadasz pod samochód. "
@@ -213,14 +214,10 @@ print("\n-Hej", name+"! Co Ty tu jeszcze robisz?"
       "\nMoże uda mi się w końcu zabrać za jakąś porządną pracę."
       "\n-Ha, akurat nie wytrwałbyś tam jednego dnia!"
       "\n-Oj nie bądź taki szybki Bill, udowodnię Ci, że będę nawet lepszy!")
-'''
-if profession == "nauczyciel":
-    minigra na inteligencję 
-elif profession == "trener":
-    minigra na siłę
-elif profession == "aktor":
-    minigra na charyzmę 
-'''
+
+from minigry import associations
+associations()
+
 print("\n-Hej, to jak jeszcze tu jesteś, to może zostaniesz do jutra?"
     "\nI tak mamy do nadrobienia jeszcze..."
     "\n-Niee, co by nie było, muszę się dzisiaj stąd ruszyć i tak zbyt długo się zbieram."
@@ -240,16 +237,14 @@ elif profession == "trener":
 elif profession == "aktor":
     print("\nPo raz ostatni postanawiasz skorzystać z jedynego pozytywnego aspektu tego teatru - ")
 
-#MINIGRA
-
+from minigry import quotes
+quotes()
 
 print("\n\tNagle słyszysz chrząknięcie. To Twoja szefowa."
       "\n-To fascynujące jak tragiczną pamięć mają teraz młodzi ludzie."
       "\n-Też niezmiernie cieszę się, że Panią widzę! Oto identyfikator.")
-id = input("Czas oddać identyfikator! ")
-while id.lower() != action[5]:
-    print('Oddaj, bo nie dostaniesz kaucji!')
-    id = input("Czas oddać identyfikator! ")
+id = input("Oddaj, bo nie dostaniesz kaucji!")
+getInput("daj")
 
 del equipment[3]
 print("Z ekwipunku usunięty został identyfikator.")
@@ -265,6 +260,7 @@ print("\n-Proszę!"
 
 equipment.append(20)
 print("Żetony są już w ekwipunku, zmierzaj do wyjścia czym prędzej!")
+getInput("wschód")
 
 #4 LOKACJA
 "*"*40
@@ -297,7 +293,7 @@ elif shopping == '3':
     equipment.append('sok')
     equipment.append('wrap')
     equipment.append('baton')
-if charisma>10:
+if abilities[1]>10:
     print("Ze względu na swój urok osobisty, sprzedawczni dorzuciła Ci czekoladę gratis!")
     equipment.append('czekolada')
 
@@ -309,8 +305,22 @@ equipment.remove(20)
 print("\n\nNapawasz się widokiem, długo tutaj nie wrócisz. Z jednej strony czujesz żal, sentyment jest duży, w końcu stąd pochodzisz... ",
     "\nNatomiast towarzyszy Ci również ekscytacja i nadzieja, że wreszcie będziesz mógł zacząć nowy rozdział w życiu, niepokierowany zaginięciem ojca.",
     "\nNagle, zauważasz po prawej jak dwóch mężczyzn gra w jakąś zmodyfikowaną wersję kości.",
-    "\nPostanawiasz do nich dołączyć, a nóż uda Ci się zarobić na dodatkowe paliwo.")
-#MINIGRA
+    "\nPostanawiasz do nich dołączyć, a nóż uda Ci się zarobić na dodatkowe paliwo."
+    "\n-Czołem panowie! Znajdzie się może tu dla mnie miejsce na jedną rundkę?"
+    "\n-Ale my gramy na pieniądze, a nie zapałki... Spadaj stąd.")
+if 'figurka' in equipment:
+    print("\n-A co jeśli jako swój wkład postawię oto niepowtarzalaną figurkę? ")
+    if abilities[0] < 7:
+        print("\n-To Cię srogo wyśmiejemy, serio, spadaj stąd młody. Chociaż może czekaj... Oddaj figurkę."
+        "\n\tJuż miałeś się zaśmiać, ale zauważyłeś, że jeden z mężczyzn trzyma nóż. Chyba nie są zwykłymi graczami kart. Albo może są... No nic, lepiej im oddam!")
+        getInput("daj")
+        equipment.remove('figurka')
+
+    else:
+        print("\n-To Cię srogo wyśmiejemy, serio, spadaj stąd młody.")
+else:
+    print("Kurczę, szkoda, że nie mam przy sobie nic, czym mógłbym ich przekupić... Chociaż może i nie, w końcu chciałem zarobić. Mniejsza z tym.")
+
 print("\nZaczynasz myśleć o spędzonym czasie w tych stronach. O wszystkich spotkaniach ze znajomymi, "
       "\no tym jak zawsze byliście z ojcem blisko, w sumie nic dziwnego w końcu wychowywał Cię samotnie."
       "\nPrzypomniało Ci się jak kiedyś... Nagle ktoś zaczepił Cię za ramię. Był to mężczyzna w średnim wieku,"
@@ -330,21 +340,16 @@ print("\nBudzisz się z ogromnym bólem z tyłu głowy. Instynktownie chcesz jej
       "\nNagle orientujesz się, że w zasięgu ręki jest plecak z Twoim ekwipunkiem."
       "\nZdecydowanie najbardziej przebiegli porywacze..."
       "\nMuszę uwolnić ręce.")
-if strength>10:
+if abilities[0]>10:
     print("Dzięki swoim nadzwyczajnym mięśniom, udało Ci się rozerwać węzły, bez zużycia noża z ekwipunku.")
 else:
+    print("Sugeruję użyć noża...")
+    getInput("użyj")
+    getInput("nóż")
 
-    a = ['użyj']
-    b = ['nóż']
-    freeAct = input("Podaj czynność: ")
-    freeEquip = input("Podaj elemenet z ekwipunku: ")
-    while not (action[4] == freeAct and 'nóż' == freeEquip):
-        print("Chyba nie chcesz się uwolnić...")
-        freeAct = input()
-        freeEquip = input()
-    print("Sukces!")
-    print("Przy użyciu noża, udało Ci się oswobodzić z węzłów. Niestety, gdy tylko spełnił swoje zadanie, rozpadł się.")
-    equipment.remove('nóż')
+print("Sukces!")
+print("Przy użyciu noża, udało Ci się oswobodzić z węzłów. Niestety, gdy tylko spełnił swoje zadanie, rozpadł się.")
+equipment.remove('nóż')
 
 print("\nRozglądasz się po pomieszczeniu, ale niewiele widzisz, jest bardzo ciemno."
       "\nOkna są pozabijane deskami, ledwo przedostają się pojedyncze promyki słońca."
@@ -354,7 +359,7 @@ print("\nRozglądasz się po pomieszczeniu, ale niewiele widzisz, jest bardzo ci
       "\nUspokajasz się, wiesz dobrze, że spanikowany niczego nie wymyślisz. Musisz się stąd wydostać, najlepiej w jednym kawałku."
       "\nOstrożnie podchodzisz do drzwi. Niepewnie chwytasz za klamkę, ale oczywiście, okazuje się, że są zamknięte."
       "\nZastanawiasz się w jaki sposób je otworzyć.")
-if strength>10:
+if abilities[0]>10:
     print("Jesteś na tyle silny, że po prostu je wyłamujesz.")
 else:
     print("Postanawiasz je stratować, udaje Ci się, ale kosztem 5hp")
@@ -365,30 +370,39 @@ print("Twoim oczom ukazuje się długi korytarz, już z tej odległosci widzisz,
       "\nMusisz ruszyć dalej, nie możesz na nikogo liczyć, jesteś swoim jedynym ratunkiem."
       "\nNarzucasz plecak na ramię i z ogromną gulą w gardle, stawiasz pierwszy krok poza bezpieczną strefę.")
 
+getInput("wschód")
 #2 LOKACJA
 "*"*40
-if intelligence>10:
+if abilities[2]>10:
     print("Już na samym początku czekała pułapka, jednak dzięki swojej inteligencji, udało Ci się nie przebić stopy gwoździem.")
 else:
     print("Już na samym początku czekała pułapka, która była prawie nie do unikcięcia. W jej wyniku Twoja dłoń została przytrzaśnięta."
-          "\nTracisz",hit, "punkty życia.")
-    health_points -= hit
+          "\nTracisz",3, "punkty życia.")
+    health_points -= 3
 print("Próbujesz cokolwiek zobaczyć, ale oprócz lekkiego światła w oddali, nic nie widzisz. Musisz iść po omacku. "
       "\nNie mija chwila, gdy czujesz, że Twoja stopa wylądowała gdzieś, gdzie nie powinna. Czy to jest mina?! "
       "\nSchylasz się i zauważasz, że na wyświetlaczu urządzenia, obok odliczającego zegara, jest opcja wyłączenia"
       "\nBez chwili wahania, klikasz. Twoim oczom ukazuje się zagadka do rozwiązania.")
-#MINIGRA
+
+
+from minigry import guessNumber
+guessNumber()
+
+
+
 print("Idąc dalej, napotykasz na swojej drodze przeszkodę. Nie jesteś w stanie przesunąć ogromnego automatu."
       "\nLicząc, że uda Ci się znaleźć jakiś przycisk wysuwający nóżki urzędzenia, co by było łatwiej je przesunąć,"
       "\nprzypadkiem je uruchamiasz. Patrzysz z zaciekawieniem co się wydarzy dalej. "
       "\nPo chwili już wiesz i jejku, ale żałujesz, że cokolwiek nacisnąłeś. Automat ewidentnie się uruchamia,"
       "\nkorytarz nieco się oświetlił, jednak nie było czasu, żeby się napawać tym widokiem,"
       "\nponieważ w parze z obrazem, szedł dźwięk. Musisz to jak najszybciej wyłączyć!")
-#MINIGRA - PALINDROM
+
+
 from minigry import palindrom
 palindrom()
 
-
+print("Dobra, teraz chyba możesz ją wyłączyć!")
+getInput("wyłącz")
 print("\nUfff, ta wyjąca maszyna wreszcie zamilkła. Zwlekasz chwilę, stojąc w miejscu, ale nie słyszysz żadnych kroków.")
 
 
@@ -399,7 +413,7 @@ print("\nChyba już nic nie jest w stanie Cię zdziwić. Czujesz, że jesteś w 
       "\nalbo ze ścian wystrzelą włócznie, przeżywasz kolejne zdziwienie. Zamiast kolejnej tragedii, okazuje się, że lampa"
       "\nprowadzi do ukrytego pomieszczenia. Czujesz zastrzyk adrenaliny. Może jednak wcale tu nie zginiesz?")
 
-
+getInput("południe")
 #3 LOKACJA
 "*"*40
 print("Niepewnie wchodzisz do nowego pomieszczenia. Udaje Ci się znaleźć włącznik światła po lewej stronie."
@@ -409,7 +423,10 @@ print("Niepewnie wchodzisz do nowego pomieszczenia. Udaje Ci się znaleźć wł�
       "\nNie zachowując już żadnych środków ostrożności idziesz prosto do serca gabinetu."
       "\nCzytając notatki zauważasz, że to jeden wielki bełkot. Ah, no tak! Autor użył szyfru. "
       "\nCiekawe czy go złamiesz... Szyfr, nie autora.")
-#MINIGRA
+
+from minigry import code
+code()
+
 print("Znasz już szyfr, teraz możesz przeanalizować gdzie te wszystkie nitki się zbiegają... "
       "\n-Proszę, proszę! Mówiłem, że chłopak rozwiąże to wszystko raz dwa!"
       "\nCo prawda czujesz się trochę wykorzystany i urażony, ale to nic w porównaniu z paraliżem, który Cię objął."
@@ -432,7 +449,10 @@ print("Znasz już szyfr, teraz możesz przeanalizować gdzie te wszystkie nitki 
       "\nPowoli podchodzisz do mapy."
       "\n-Potrzebuję chwili ciszy."
       "\n-Byleby nie za długo!")
-#MINIGRA
+
+from minigry import mapCode
+mapCode()
+
 print("Porywacze popatrzyli na siebie z porozumieniem. Niczym zdążyłeś zareagować, po raz kolejny zobaczyłeś ten przerażający uśmiech."
       "Po nim ciemność. Tak, zostałeś znowu ogłuszony.")
 
@@ -449,7 +469,7 @@ print("Budzisz się w nieco jaśniejszym miejscu. Musisz przymróżyć oczy, że
 
 
 
-if charisma>10:
+if abilities[1]>10:
     i=-1
 else:
     i = 0
@@ -480,7 +500,10 @@ while i<3:
 
 
 print("\n\n-Dobra, dosyć tego gadania. Lepiej oszczędzaj siły. Chociaż, mamy jeszcze chwilkę, także dla zabicia czasu proponuję małą rywalizację...")
-#MINIGRA
+
+from minigry import rockPaperScissors
+rockPaperScissors()
+
 print("\n-Szefie, jesteśmy na miejscu.")
 
 #5 LOKACJA
@@ -533,49 +556,45 @@ print("\nO dziwo, nie zemdlałeś, chociaż biorąc pod uwagę co rzeczywiście 
       "\nOprych patrzy na Ciebie podejrzliwie."
       "\n-Spokojnie, żeby wziąć chwilówkę potrzebuję nieco więcej danych. No dalej, nie będę wołał do Ciebie oprychu!"
       "\n-Mam na imię Gabriel.")
-gunmanName = 'Gabriel'
-gunmanHP = 70
-gunmanStrength = 13
-gunmanAttack = 7
+
 print("\n-Dobra, Gabrielu, mamy dość nietypową sytuację.Proponuję zawrzeć sojusz na bliżej nieokreślony czas. Zgoda?"
       "\n-Zgoda. "
       "\n-Rozejrzymy się."
       "Przecierając czoło pomyślałes, że to jest naprawdę intensywny dzień. Rozglądając się po otoczeniu, zauważasz błyszczący się element.")
-shinyThing = input("\n\nCo chcesz zrobić? ")
+shinyThing = input("\n\nJaką akcję chcesz wykonać? ")
 if shinyThing == action[1]:
     print("\nOstrożnie podchodzisz do przedmiotu, kształtem przypomina... właściwie nic. To chyba jakiś kolczyk... Gdy już dosłownie miałeś go podnieść, zostajecie otoczeni.")
-    intelligence -= 1
+    abilities[2] -= 1
 else:
     print("\nCoś Ci podpowiada, że to może być pułapka, dlatego postanawiasz jednak zachować czujność i pójść w drugim kierunku."
           "\nAle to Ty. Jest jeszcze z Tobą Gabriel, który gdy tylko zobaczył, że coś się błyszczy, od razu rzucił się w tym kierunku, jakby miało go to uwartować."
           "\nNiczym zdążyłeś zareagować, podniósł przedmiot. Zaledwie chwilę później, zostaliście otoczeni.")
-    intelligence += 1
+    abilities[2] += 1
 print("\nWidząc wycelowane w was włócznie, myślałeś czy od razu nastąpiła kumulacja Twojego szczęścia i zostaliście otoczeni przez kanibali."
       "\nJuż nawet nie liczyłeś, że Gabriel ma ze sobą broń. Zresztą, nawet jeśli by miał, to pewnie nie pomyślałby by jej użyć."
       "\nWyciągasz ręce w geście kapitulacji. Szybko okazuje się, że tutaj ten gest musi oznaczać coś obraźliwego. Pięknie."
       "\nChwilę po tym część atakujących rozsuwa się, wpuszczając przed siebie mężczyznę przepasanego lamparcią skórą. To chyba dowódca."
       "\nNie odzywa się słowem, chyba wie, że to nie ma sensu. Jednak próbuje podjąć rozmowę w inny sposób. Podaje mi pudełko. ")
-openBox = input("Jaką czynność chcesz wykonać? ")
-while openBox != action[0]:
-    print("Lepiej dobrze się zastanów.")
-    openBox = input("Co chcesz zrobić z pudełkiem? ")
+
+getInput("otwórz")
 print("Pudełko zostało otwarte!")
-#MINIGRA
+
+from minigry import bingo
+bingo()
 
 print("\nPatrząc na ich nad wyraz pozytywną reakcję, dochodzisz do wniosku, że urządzenie miało na celu powiedzieć im, czy masz dobre intencje, czy jednak złe."
       "\nNie rozumiesz tylko jednego, dlaczego, skoro rzeczywiście macie dobre intencje, jesteście prowadzeni jak więźniowie?"
       "\nPodchodzi do was jeden z nich i wręcza wam... broń.")
-weaponTake = input("Co chcesz zrobić z bronią? ")
-while weaponTake != action[6]:
-    print("Uwierz, lepiej weź, przyda Ci się.")
+
+getInput("weź")
 equipment.append('dzida')
+
 print("\n\nNagle usłyszałeś przeraźliwe odgłosy z dżungli. Zauważyłeś jak wszyscy się wzdrgnęli. Na pewno tam nie pójdziemy."
       "\n-Tam, iść!"
       "\nOczywiście, jakżeby inaczej... Z dzidą w dłodni i złym przeczuciem, musiałeś podążyć za plemionem.")
-move = input("Co chcesz zrobić? ")
-while move.lower() != 'idź w prawo':
-    print("Nie chcesz tu zostać sam!")
-    move = input("Co chcesz zrobić? ")
+#poruszenie się: >idź w wschód
+getInput("wschód")
+
 #2 LOKACJA
 print("Zachwując czujność przemierzacie te dzikie tereny. Próbujesz zagadać do Gabriela:")
 smallTalk = input("1 - Patrz w co nas wpakowałeś!"
@@ -603,17 +622,27 @@ print("\n\nWaszym oczom ukazują się przeciwnicy. Wygladają jak jakieś... dem
 
 #3 LOKACJA
 print("\nIdąc ledwie o własnych siłach, docieracie do wisoki. Orientujesz się, że po ataku nikt nie zwraca na was uwagi. Moglibyście w tym momencie uciec.")
-if intelligence>10:
+if abilities[2]>10:
     print("Jesteś na tyle mądry, żeby nawet nie zastanawiać się nad powrotem do tamtego piekła. Poradzisz sobie ze wszystkim co Cię czeka.")
 else:
-    enterCamp = input("Co chcesz zrobić?")
-    while enterCamp != action[7]:
-        print("To nie jest dobry wybór...")
-        enterCamp = input("Co chcesz zrobić?")
+    getInput("południe")
 
-print("\nWaszym oczom ukazuje się olbrzymi plac. W którym kierunku byście nie poszli, coś się dzieje.")
-campDirections = input("W którym kierunku chcesz pójść?")
-#poruszanie się
+print("\nWaszym oczom ukazuje się olbrzymi plac. We wschodniej i zachodniej części obozu znajdują się atrakcje... Za to idąc na północ, poznasz dalsze losy",name,".")
+campDirections = input("Zastanów się w którym kierunku chcesz pójść?"
+                       "1 - wschód"
+                       "2 - zachód"
+                       "3 - północ")
+if campDirections == "1":
+    getInput("wschód")
+    print("Docierasz do wschodniej części wioski. Widzisz tu duże zbiegowisko ludzi. To co nie pasuje Ci do obrazka, do smutny mężczyzna, stojący w odosobnieniu."
+          "Postanawiasz zagadać.")
+elif campDirections == "2":
+    getInput("zachód")
+elif campDirections == "3":
+    getInput("północ")
+
+
+
 print("\nWraz z Gabrielem zmierzacie na spotkanie z wodzem. Wiesz, że będzie chciał dowiedzieć się co tu robicie. Ty w sumie sam jesteś tego ciekaw.")
 #poruszenie się - idź w górę
 
@@ -666,16 +695,14 @@ print("\n\nTak jak się spodziewaliście, Płacząca brama była otoczona przez 
       "\nMając u boku paru wojowników, Gabriela i ojca, czułeś, że poradzisz sobie ze wszystkim. Do ataku!")
 #walka
 print("Ramię w ramię, podchodzicie z ojcem do otworu znajdującego się obok Płaczącej bramy. Próbujecie odczytać co jest tam napisane.")
-#MINIGRA
+
+from minigry import rewriting
+rewriting()
+
 print("Zgodnie z instrukcją, wypowiadasz słowa: . Wyciągnij haczyk z ekwipunku i go użyj!")
 
-equipmentFishhook = input("Co chcesz wyciągnąć z ekwipunku?")
-actionFishhook = input("Co chcesz zrobić?")
-
-while not(equipmentFishhook == "haczyk z wędkowania" and actionFishhook == action[4]):
-    print("Lepiej się pospiesz, zaraz mogą wrócić demony!")
-    equipmentFishhook = input("Co chcesz wyciągnąć z ekwipunku?")
-    actionFishhook = input("Co chcesz zrobić?")
+getInput("haczyk z wędkowania")
+getInput("użyj")
 
 print("\n\nBrama została zamknięta. Sytuacja opanowana. Po raz pierwszy od dawna, złapałeś oddech."
       "\n-Dobra robota synu! Możemy już wracać. Daj mi tylko chwilę, pożegnam się ze wszystkimi. Zaraz wrócę."
@@ -715,7 +742,7 @@ print("\n\nWaszą rozmowę przerwał powrót ojca. Powiedziałeś mu co was czek
 print("\n\nNiezgrabnie wywracacie się na drewnianą podłogę. Bandyta-szef, musiał jakoś to zaplanować."
       "\n-Proszę, proszę, kogo my tu mamy! Ojciec i syn, oboje marnotrawni. Witaj Gabrielu, cieszę się, że jesteś w jednym kawałku. A teraz oddajcie artefakt.")
 
-if intelligence>12:
+if abilities[2]>12:
     print("Sugeruję odpowiedź 1!")
 artefactIssue = input("Wybierz mądrze co chcesz odpowiedzieć!"
                       "\n\n1 -Musisz zrozumieć, że tu chodzi o coś więcej niż góry złota. Ten artefakt, to co oni robią, to jest coś bezcennego. Tak naprawdę, tylko dzięki nim jeszcze żyjemy."
@@ -724,7 +751,7 @@ artefactIssue = input("Wybierz mądrze co chcesz odpowiedzieć!"
 
 if artefactIssue == '1':
     print("\n\n-Hmmm, za ignoranta zdecydowanie się nie uważam, co nie zmienia faktu, że czuję się niewymowanie oszukany. Przez was wszystkich.")
-    if intelligence>13:
+    if abilities[2]>13:
         print("\nPonownie, sugeruję odpowiedź 1!")
     finalIssue = input("\n\n1 - E tam od razu oszukany, nie zachowuj się jak jakiś dzieciak! Daj nam wszystkim szansę na szczęśliwe zakończenie. Może po tylu latach niecnego knowania, warto wybrać inną drogę..."
                        "\n2 - Najbardziej oszukany powinieneś czuć się przez samego siebie. Patrz ile czasu spędziłeś szukając czegoś, czego w sumie tak naprawdę nie chcesz. Nie jest za późno na zmianę decyzji!")
@@ -743,3 +770,6 @@ if artefactIssue == '1':
 elif artefactIssue == '2':
     print()
 #walka, ginie gabriel
+
+
+print("KONIEC")
